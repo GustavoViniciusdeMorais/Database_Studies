@@ -41,4 +41,21 @@ ALTER TABLE customers MODIFY cpf VARCHAR(14) NOT NULL;
 
 ALTER TABLE customers DROP INDEX cpf_unique;
 
+ALTER TABLE orders ALTER COLUMN total_price SET DEFAULT 0;
+
+ALTER TABLE orders ALTER COLUMN total_price DROP DEFAULT;
+
+INSERT INTO customers (name, email, cpf) VALUES ('gustavo', 'gustavo@email.com', '04777911199');
+INSERT INTO customers (name, email, cpf) VALUES ('Vanessa Veracruz', 'vanessacruz@email.com', '69969969969');
+
+INSERT INTO products (name, price) VALUES ('Coca Cola', 5.50);
+INSERT INTO products (name, price) VALUES ('Bra', 205.89);
+
+INSERT INTO orders (customer_id, product_id, total_price) VALUES (1,1,5.50);
+INSERT INTO orders (customer_id, product_id, total_price) VALUES (3, 2, (SELECT price FROM products WHERE id = 2));
+
+UPDATE customers SET name = 'gustavo vinicius' WHERE id = 1;
+
+DELETE FROM products WHERE id = 3;
+
 ```
