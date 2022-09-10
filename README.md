@@ -47,15 +47,36 @@ ALTER TABLE orders ALTER COLUMN total_price DROP DEFAULT;
 
 INSERT INTO customers (name, email, cpf) VALUES ('gustavo', 'gustavo@email.com', '04777911199');
 INSERT INTO customers (name, email, cpf) VALUES ('Vanessa Veracruz', 'vanessacruz@email.com', '69969969969');
+INSERT INTO customers (name, email, cpf) VALUES ('Cory Chase', 'corychase@email.com', '690');
 
 INSERT INTO products (name, price) VALUES ('Coca Cola', 5.50);
 INSERT INTO products (name, price) VALUES ('Bra', 205.89);
 
 INSERT INTO orders (customer_id, product_id, total_price) VALUES (1,1,5.50);
+INSERT INTO orders (customer_id, product_id, total_price) VALUES (2, 2, (SELECT price FROM products WHERE id = 2));
 INSERT INTO orders (customer_id, product_id, total_price) VALUES (3, 2, (SELECT price FROM products WHERE id = 2));
 
 UPDATE customers SET name = 'gustavo vinicius' WHERE id = 1;
 
 DELETE FROM products WHERE id = 3;
+
+ALTER TABLE customers ADD COLUMN uf VARCHAR (11);
+
+ALTER TABLE customers ALTER COLUMN uf SET DEFAULT 'GO';
+
+SELECT * FROM products WHERE name LIKE '%a%';
+
+SELECT COUNT(*) FROM products;
+
+SELECT MAX(price) FROM products;
+
+SELECT uf, COUNT(*) AS AmtCustomers 
+FROM customers
+GROUP BY uf;
+
+SELECT c.name AS customer_name, p.name as product_name, sale.total_price AS order_price
+FROM customers AS c
+INNER JOIN orders AS sale ON c.id = sale.customer_id
+INNER JOIN products AS p ON sale.product_id = p.id;
 
 ```
