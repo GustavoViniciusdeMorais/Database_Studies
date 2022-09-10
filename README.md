@@ -85,7 +85,7 @@ UPDATE products SET store = 10;
 
 ```
 
-Procedure
+###Procedures
 
 ```
 
@@ -115,5 +115,26 @@ END&&
 DELIMITER ;
 
 CALL make_order(3,2,500,2);
+
+```
+
+###View example
+```
+
+CREATE VIEW v_go_customers AS
+SELECT * FROM customers WHERE uf = 'GO';
+
+SELECT * FROM v_go_customers;
+
+
+DROP VIEW IF EXISTS v_orders_details;
+
+CREATE VIEW v_orders_details AS
+SELECT c.name AS customer_name, c.cpf AS customer_cpf, p.name as product_name, sale.total_price AS order_price
+FROM customers AS c
+INNER JOIN orders AS sale ON c.id = sale.customer_id
+INNER JOIN products AS p ON sale.product_id = p.id;
+
+SELECT * FROM v_orders_details;
 
 ```
