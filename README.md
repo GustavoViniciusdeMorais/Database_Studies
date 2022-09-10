@@ -79,4 +79,41 @@ FROM customers AS c
 INNER JOIN orders AS sale ON c.id = sale.customer_id
 INNER JOIN products AS p ON sale.product_id = p.id;
 
+ALTER TABLE products ADD COLUMN store INT;
+ALTER TABLE products ALTER COLUMN store SET DEFAULT 10;
+UPDATE products SET store = 10;
+
+```
+
+Procedure
+
+```
+
+DELIMITER &&
+
+DROP PROCEDURE IF EXISTS get_customers&&
+
+CREATE PROCEDURE get_customers()
+BEGIN
+    SELECT * FROM customers;
+END&&
+DELIMITER ;
+
+CALL get_customers();
+
+
+DELIMITER &&
+
+DROP PROCEDURE IF EXISTS make_order&&
+
+CREATE PROCEDURE make_order(customer_id INT, product_id INT, total_price DOUBLE, amt INT)
+BEGIN
+    INSERT INTO orders (customer_id, product_id, total_price)
+    VALUES (customer_id, product_id, total_price);
+    UPDATE products SET store=store-amt WHERE id = product_id;
+END&&
+DELIMITER ;
+
+CALL make_order(3,2,500,2);
+
 ```
