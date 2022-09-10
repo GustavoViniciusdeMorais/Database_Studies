@@ -138,3 +138,4 @@ INNER JOIN products AS p ON sale.product_id = p.id;
 SELECT * FROM v_orders_details;
 
 ```
+![TDD](/imgs/dbDiagram.png)
