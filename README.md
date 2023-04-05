@@ -7,7 +7,7 @@ mysql> use laravel;
 mysql> source /var/www/mysqlsampledatabase.sql;
 ```
 
-
+### Create database tables and simple commands
 ```sql
 
 CREATE TABLE customers (
@@ -93,7 +93,7 @@ UPDATE products SET store = 10;
 
 ```
 
-###Procedures
+### Procedures
 
 ```
 
@@ -126,7 +126,7 @@ CALL make_order(3,2,500,2);
 
 ```
 
-###View example
+### View example
 ```
 
 CREATE VIEW v_go_customers AS
