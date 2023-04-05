@@ -1,6 +1,14 @@
 # MySQL Commands
 
+### Import database
+```sh
+mysql -u root -p
+mysql> use laravel;
+mysql> source /var/www/mysqlsampledatabase.sql;
 ```
+
+
+```sql
 
 CREATE TABLE customers (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

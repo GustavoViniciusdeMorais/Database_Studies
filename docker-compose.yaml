@@ -2,16 +2,26 @@ version: '3'
 
 services:
     mysql:
-          image: mysql:5.7
-          restart: always
-          ports:
-              - 3306:3306
-          environment:
-              MYSQL_DATABASE: laravel
-              MYSQL_ROOT_PASSWORD: laravel
-          networks:
-            - app-network
+        image: mysql:5.7
+        restart: always
+        container_name: sqlstudy
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_DATABASE: laravel
+            MYSQL_ROOT_PASSWORD: laravel
+        volumes:
+            - ./dockerDBData:/var/lib/mysql
+            - ./data:/var/www
+        networks:
+            sql-app-network:
+                ipv4_address: 11.0.0.8
+
 
 networks:
-    app-network:
+    sql-app-network:
         driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: "11.0.0.0/16"
