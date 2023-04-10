@@ -12,3 +12,5 @@ Created by: Gustavo Morais
 ```sql
 SELECT u.name, u.email FROM users AS u WHERE u.id = 1;
 ```
+
+<img src="./imgs/queryExecutionPath.png" width="500" height="500">
