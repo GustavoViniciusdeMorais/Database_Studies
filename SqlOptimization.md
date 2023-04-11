@@ -22,6 +22,7 @@ EXPLAIN select customerNumber, customerName, phone, city FROM customers LIMIT 10
 ```
 
 ### Show details of query execution
+The 'Show warnings' commad shows the query details
 ```
 EXPLAIN extended select customerNumber, customerName, phone, city FROM customers LIMIT 10; SHOW warnings;
 ```
