@@ -13,4 +13,19 @@ Created by: Gustavo Morais
 SELECT u.name, u.email FROM users AS u WHERE u.id = 1;
 ```
 
+### Debug Commands
+```
+SHOW processlist;
+SHOW FULL processlist;
+
+EXPLAIN select customerNumber, customerName, phone, city FROM customers LIMIT 10;
+```
+
+### Show details of query execution
+```
+EXPLAIN extended select customerNumber, customerName, phone, city FROM customers LIMIT 10; SHOW warnings;
+```
+![](./imgs/explainExtendedShowWarnings.png)
+
+
 <img src="./imgs/queryExecutionPath.png" width="500" height="500">
