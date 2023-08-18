@@ -7,7 +7,10 @@ mysql> use laravel;
 mysql> source /var/www/mysqlsampledatabase.sql;
 ```
 ### Export MariaDB database
+Access the terminal of the db server, no need to enter the db terminal, just the server terminal
+```
 mariadb-dump --user=root --password --lock-tables --databases dbName > /var/lib/mysql/dbDump.sql
+```
 
 ### Create database tables and simple commands
 ```sql
