@@ -6,6 +6,8 @@ mysql -u root -p
 mysql> use laravel;
 mysql> source /var/www/mysqlsampledatabase.sql;
 ```
+### Export MariaDB database
+mariadb-dump --user=root --password --lock-tables --databases dbName > /var/lib/mysql/dbDump.sql
 
 ### Create database tables and simple commands
 ```sql
