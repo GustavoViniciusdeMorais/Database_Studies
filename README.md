@@ -134,7 +134,7 @@ CALL make_order(3,2,500,2);
 ### View example
 ```
 
-CREATE VIEW v_go_customers AS
+CREATE OR REPLACE VIEW v_go_customers AS
 SELECT * FROM customers WHERE uf = 'GO';
 
 SELECT * FROM v_go_customers;
