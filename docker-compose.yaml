@@ -1,12 +1,26 @@
 version: '3'
 
 services:
+    jasper:
+        build:
+            context: .
+            dockerfile: ubuntu.dockerfile
+        ports:
+            - 80:80
+        volumes:
+            - ./:/var/www/html
+        container_name: jasper
+        depends_on:
+            - mysql
+        networks:
+            - sql-app-network
+
     mysql:
         image: mysql:5.7
         restart: always
         container_name: sqlstudy
         ports:
-            - 3306:3306
+            - 3308:3306
         environment:
             MYSQL_DATABASE: laravel
             MYSQL_ROOT_PASSWORD: laravel

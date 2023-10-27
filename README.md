@@ -59,11 +59,11 @@ ALTER TABLE orders ALTER COLUMN total_price SET DEFAULT 0;
 ALTER TABLE orders ALTER COLUMN total_price DROP DEFAULT;
 
 INSERT INTO customers (name, email, cpf) VALUES ('gustavo', 'gustavo@email.com', '04777911199');
-INSERT INTO customers (name, email, cpf) VALUES ('Vanessa Veracruz', 'vanessacruz@email.com', '69969969969');
-INSERT INTO customers (name, email, cpf) VALUES ('Cory Chase', 'corychase@email.com', '690');
+INSERT INTO customers (name, email, cpf) VALUES ('Person1', 'person1@email.com', '09322211122');
+INSERT INTO customers (name, email, cpf) VALUES ('Person2', 'person2@email.com', '11122299922');
 
 INSERT INTO products (name, price) VALUES ('Coca Cola', 5.50);
-INSERT INTO products (name, price) VALUES ('Bra', 205.89);
+INSERT INTO products (name, price) VALUES ('Cellphone', 205.89);
 
 INSERT INTO orders (customer_id, product_id, total_price) VALUES (1,1,5.50);
 INSERT INTO orders (customer_id, product_id, total_price) VALUES (2, 2, (SELECT price FROM products WHERE id = 2));
