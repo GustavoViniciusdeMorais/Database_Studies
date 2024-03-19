@@ -3,6 +3,7 @@
 ## Basic Commands
 
 - `sqlite3`: Command to start the SQLite command-line interface.
+- `.read database.sql`: Create tables from sql file.
 - `.open <database_name>`: Open or create a database.
 - `.tables`: List all tables in the current database.
 - `.schema <table_name>`: Show the schema of a specific table.
