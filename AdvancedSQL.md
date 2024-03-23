@@ -19,3 +19,19 @@ ORDER BY
 	CustomerRank
 LIMIT 3;
 ```
+```sql
+-- Shows the product quantity difference between the current order and the previous
+-- order
+SELECT
+	o.orderNumber,
+	p.productName,
+	LAG(o2.quantityOrdered) OVER (ORDER BY o.orderDate) AS PreviousQuantity,
+	o2.quantityOrdered - LAG(o2.quantityOrdered) OVER (ORDER BY o.orderDate) AS QuantityDifference
+FROM
+orders o
+JOIN orderdetails o2 ON o.orderNumber = o2.orderNumber
+JOIN products p ON o2.productCode = p.productCode
+GROUP BY o.orderNumber, p.productCode
+ORDER BY o.orderDate DESC
+LIMIT 3;
+```
