@@ -19,3 +19,19 @@ ORDER BY
 	CustomerRank
 LIMIT 3;
 ```
+
+### Subquery
+Shows the top 10 most hight payments then the average
+```sql
+SELECT
+c.phone, p.amount
+FROM
+classicmodels.customers c
+JOIN classicmodels.payments p ON c.customerNumber = p.customerNumber
+WHERE p.amount > (
+	SELECT AVG(p2.amount)
+	FROM classicmodels.payments p2
+)
+ORDER BY p.amount DESC
+LIMIT 10
+```
