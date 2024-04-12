@@ -1,5 +1,7 @@
 # MySQL Commands
 
+- [Advanced SQL Examples](./AdvancedSQL.md)
+
 ### Import database
 ```sh
 mysql -u root -p
@@ -151,7 +153,5 @@ INNER JOIN products AS p ON sale.product_id = p.id;
 SELECT * FROM v_orders_details;
 
 ```
-
-[Advanced SQL Examples](./AdvancedSQL.md)
 
 ![TDD](/imgs/dbDiagram.png)
