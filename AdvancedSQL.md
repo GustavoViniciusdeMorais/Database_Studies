@@ -51,3 +51,17 @@ WHERE p.amount > (
 ORDER BY p.amount DESC
 LIMIT 10
 ```
+
+### Common Table Expression
+Work on progress.
+Question: What is the five products that sold the most in 2003 ?
+```sql
+SELECT
+o2.productCode, SUM(o2.quantityOrdered) AS total_ordered, YEAR(o.orderDate) AS order_year
+FROM
+classicmodels.orders o
+JOIN classicmodels.orderdetails o2 ON o.orderNumber = o2.orderNumber
+WHERE YEAR(o.orderDate) = '2003'
+GROUP BY o2.productCode, YEAR(o.orderDate)
+LIMIT 10
+```
