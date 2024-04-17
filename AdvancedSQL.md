@@ -53,15 +53,21 @@ LIMIT 10
 ```
 
 ### Common Table Expression
-Work on progress.
-Question: What is the five products that sold the most in 2003 ?
+
 ```sql
+WITH 
+LowStockProducts AS 
+(
 SELECT
-o2.productCode, SUM(o2.quantityOrdered) AS total_ordered, YEAR(o.orderDate) AS order_year
+p.productName,
+p.quantityInStock
 FROM
-classicmodels.orders o
-JOIN classicmodels.orderdetails o2 ON o.orderNumber = o2.orderNumber
-WHERE YEAR(o.orderDate) = '2003'
-GROUP BY o2.productCode, YEAR(o.orderDate)
-LIMIT 10
+classicmodels.products p
+WHERE p.quantityInStock < 50
+)
+
+SELECT
+LSP.productName, LSP.quantityInStock
+FROM
+LowStockProducts AS LSP
 ```
