@@ -1,5 +1,7 @@
 # PostgreSQL Commands Cheat Sheet
 
+- [Configuration](./configPostgresql.md)
+
 ## Database Operations
 
 ### Connect to pgsql
