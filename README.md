@@ -8,6 +8,10 @@
 ```sh
 psql -U username -W
 ```
+### Load data from sql file
+```sh
+psql -U postgres -d database_name -f /var/lib/postgresql/data/database.sql
+```
 
 ### Create Database
 ```sql
