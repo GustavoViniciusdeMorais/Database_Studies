@@ -15,6 +15,11 @@ Access the terminal of the db server, no need to enter the db terminal, just the
 mariadb-dump --user=root --password --lock-tables --databases dbName > /var/lib/mysql/dbDump.sql
 ```
 
+### Update root password MySql v8
+```sh
+ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'new-password';
+```
+
 ### Create database tables and simple commands
 ```sql
 
