@@ -1,6 +1,6 @@
 # NoSQL with MongoDB
 Here's a single, compact Markdown block you can copy and paste directly into your GitHub repository:
-
+[Mongosh doc](https://www.mongodb.com/docs/mongodb-shell/crud/)
 ```markdown
 # MongoDB Setup and Commands
 
