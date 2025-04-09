@@ -62,3 +62,9 @@ gustavo> db.linux.find()
   }
 ]
 ```
+## Search data
+```bash
+db.linux.find({"name": {$regex: /ub/i }},{"name":1}).pretty()
+db.linux.find({},{"name":1}).pretty()
+```
+
