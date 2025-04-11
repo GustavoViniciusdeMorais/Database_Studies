@@ -62,9 +62,14 @@ gustavo> db.linux.find()
   }
 ]
 ```
-## Search data
+### Search data
 ```bash
 db.linux.find({"name": {$regex: /ub/i }},{"name":1}).pretty()
 db.linux.find({},{"name":1}).pretty()
 ```
-
+### Sort, limit, skip
+```bash
+db.linux.find({},{"name":1}).limit(2)
+db.linux.find({},{"name":1}).sort({"name":-1});
+db.linux.find({},{"name":1}).sort({"name":1}).skip(2).limit(1);
+```
