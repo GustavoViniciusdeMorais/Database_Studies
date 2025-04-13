@@ -1,6 +1,6 @@
 # NoSQL with MongoDB
 - [Mongosh doc](https://www.mongodb.com/docs/mongodb-shell/crud/)<br>
-Here's a single, compact Markdown block you can copy and paste directly into your GitHub repository:
+- [CRUD](./crud.md)<br>
 
 ```markdown
 # MongoDB Setup and Commands
@@ -32,44 +32,28 @@ mongosh "mongodb+srv://YOUR_CLUSTER_NAME.YOUR_HASH.mongodb.net/" --apiVersion YO
 mongosh "mongodb://localhost:27031"
 ```
 
-## Common Operations
-```javascript
-> show dbs
-> use oficial_gs_test
-> show collections
-> db.users.find()
-> db.collection_name.find({email: /amira/},{email:1,name:1})
+### Login at default mongo docker from docker hub
+```js
+mongosh
+test> use admin
+switched to db admin
+admin> db.auth("root","example")
+{ ok: 1 }
+admin> use test
+switched to db test
+test> show dbs
+admin   100.00 KiB
+config   12.00 KiB
+local    72.00 KiB
+test> 
+```
 
-// Example CRUD
-linux = {"name":"debian","version":"25"}
-db.linux.insertOne(linux)
+### Simple Import json
+```bash
+mongoimport --uri "mongodb://root:example@localhost:27017" --db admin --collection linux --file /var/www/html/data/linux_collection.json --jsonArray
+mongosh
+use admin
+db.auth("root","example")
+show collections
 db.linux.find()
-db.linux.updateOne({name:"debian"}, {$set: {version:"26"}})
-db.linux.deleteOne({name:"debian"})
-```
-
-## Example Session
-```javascript
-test> use gustavo
-gustavo> db.linux.insertOne({"name":"debian","version":"25"})
-gustavo> show collections
-gustavo> db.linux.find()
-[
-  {
-    _id: ObjectId('67f55c1887938550fc6b140b'),
-    name: 'debian',
-    version: '25'
-  }
-]
-```
-### Search data
-```bash
-db.linux.find({"name": {$regex: /ub/i }},{"name":1}).pretty()
-db.linux.find({},{"name":1}).pretty()
-```
-### Sort, limit, skip
-```bash
-db.linux.find({},{"name":1}).limit(2)
-db.linux.find({},{"name":1}).sort({"name":-1});
-db.linux.find({},{"name":1}).sort({"name":1}).skip(2).limit(1);
 ```

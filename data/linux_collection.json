@@ -1,0 +1,11 @@
+[
+    {
+        "name": "ubuntu",
+        "version": "23"
+    },
+    {
+        "name": "debian",
+        "version": "13",
+        "description": "debian os"
+    }
+]
