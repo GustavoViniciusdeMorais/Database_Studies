@@ -20,7 +20,11 @@ mariadb-dump --user=root --password --lock-tables --databases dbName > /var/lib/
 ```sh
 ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'new-password';
 ```
-
+### Create user with password same as its name
+```bash
+# no need to have a db selected, just enter the mariadb cli as root
+GRANT ALL PRIVILEGES ON *.* TO 'gustavo'@'localhost' IDENTIFIED BY 'gustavo';
+```
 ### Create database tables and simple commands
 ```sql
 
