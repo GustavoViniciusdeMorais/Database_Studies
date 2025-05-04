@@ -72,6 +72,8 @@ ALTER TABLE orders ALTER COLUMN total_price SET DEFAULT 0;
 
 ALTER TABLE orders ALTER COLUMN total_price DROP DEFAULT;
 
+alter table books add constraint fk_author foreign key (author_id) references author (id);
+
 INSERT INTO customers (name, email, cpf) VALUES ('gustavo', 'gustavo@email.com', '04777911199');
 INSERT INTO customers (name, email, cpf) VALUES ('Vanessa Veracruz', 'vanessacruz@email.com', '69969969969');
 INSERT INTO customers (name, email, cpf) VALUES ('Cory Chase', 'corychase@email.com', '690');
