@@ -15,8 +15,20 @@ services:
             - ./data:/var/www
         networks:
             sql-app-network:
-                ipv4_address: 11.0.0.8
+                ipv4_address: 10.0.0.8
 
+    api:
+        build:
+            context: .
+            dockerfile: ubuntu.dockerfile
+        ports:
+            - 84:80
+        volumes:
+            - ./:/var/www/html
+        container_name: api
+        networks:
+            sql-app-network:
+                ipv4_address: 10.0.0.9
 
 networks:
     sql-app-network:
@@ -24,4 +36,4 @@ networks:
         ipam:
             driver: default
             config:
-                - subnet: "11.0.0.0/16"
+                - subnet: "10.0.0.0/16"

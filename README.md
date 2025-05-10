@@ -28,6 +28,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'gustavo'@'localhost' IDENTIFIED BY 'gustavo';
 ```
 ### Create database tables and simple commands
 ```sql
+USE studies;
 
 CREATE TABLE customers (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
