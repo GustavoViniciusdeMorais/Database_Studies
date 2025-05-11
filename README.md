@@ -4,6 +4,7 @@
 - [Advanced SQL Examples](./AdvancedSQL.md)
 - [Data Warehouse Snowflake](./data_warehouse_mariadb.md)
 - [Manage Users](./manageUsers.md)
+- [Python DB CLI](./python/mysql.md)
 
 ### Import database
 ```sh
