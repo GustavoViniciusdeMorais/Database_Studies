@@ -4,10 +4,11 @@ import mysql.connector
 
 mydb = mysql.connector.connect(
   host="127.0.0.1",
-  user="root",
-  password=""
+  user="remote_user",
+  password="your_password",
+  database="studies"
 )
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT COUNT(*) FROM products")
+mycursor.execute("SELECT * FROM customers")
