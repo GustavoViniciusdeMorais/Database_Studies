@@ -1,5 +1,5 @@
 # Python MySQL DB CLI
-
+- [Script Example](./mysql.py)
 ```bash
 docker pull gustavovinicius/guspy:databases
 ```
