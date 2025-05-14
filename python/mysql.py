@@ -1,6 +1,8 @@
 # pip install mysql-connector-python
+# pip install pandas
 
 import mysql.connector
+import pandas as pd
 
 mydb = mysql.connector.connect(
   host="127.0.0.1",
@@ -9,6 +11,19 @@ mydb = mysql.connector.connect(
   database="studies"
 )
 
-mycursor = mydb.cursor()
+cursor = mydb.cursor()
 
-mycursor.execute("SELECT * FROM customers")
+cursor.execute("SELECT * FROM customers")
+
+df = pd.read_csv('/var/www/html/python/products.csv')
+df.head()
+
+for index, product in df.iterrows():
+  print(index, product['name'])
+
+def getTableData(table):
+  cursor.execute(f"SELECT * FROM {table}")
+  results = cursor.fetchall()
+  print(results)
+
+getTableData("products")
