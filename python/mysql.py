@@ -27,3 +27,8 @@ def getTableData(table):
   print(results)
 
 getTableData("products")
+
+def insertData(df):
+  for index, product in df.iterrows():
+    cursor.execute(f"INSERT INTO products (name, price) VALUES ('{product['name']}','{product['price']}')")
+  mydb.commit()
