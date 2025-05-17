@@ -6,6 +6,13 @@ docker pull gustavovinicius/guspy:databases
 ```
 ```bash
 pip install mysql-connector-python
+pip install pandas
+pip install notebook
+```
+### Run Jupyter Notebook Server
+```bash
+jupyter notebook --ip=0.0.0.0 --port=80 --allow-root
+# it will generate link with ?token variable
 ```
 ### Config SGBD
 ```bash

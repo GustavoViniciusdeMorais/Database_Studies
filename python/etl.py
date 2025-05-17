@@ -17,6 +17,7 @@ cursor.execute("SELECT * FROM customers")
 
 df = pd.read_csv('/var/www/html/python/products.csv')
 df.head()
+df.isna()
 
 for index, product in df.iterrows():
   print(index, product['name'])
@@ -32,3 +33,10 @@ def insertData(df):
   for index, product in df.iterrows():
     cursor.execute(f"INSERT INTO products (name, price) VALUES ('{product['name']}','{product['price']}')")
   mydb.commit()
+
+def fromTableToCsv(table):
+  cursor.execute(f"SELECT * FROM {table}")
+  results = cursor.fetchall()
+  for item in results:
+    print(item['name'])
+
