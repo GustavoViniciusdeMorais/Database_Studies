@@ -1,5 +1,5 @@
 # Python MySQL DB CLI
-- [Script Example](./mysql.py)
+- [Script Example](./etl.py)
 - [DataSet Pandas Example](https://github.com/GustavoViniciusdeMorais/DataScience_Studies/blob/master/pandas.md)
 ```bash
 docker pull gustavovinicius/guspy:databases
