@@ -46,3 +46,7 @@ db.linux.find({},{"name":1}).sort({"name":1}).skip(2).limit(1);
 # $gt, $lt
 db.linux.find({"version": { $lt:"13"}}, {"name":1})
 ```
+### Update
+```js
+db.linux.updateOne({"_id": ObjectId('684b02c0a5388e217969e328')}, [{$set: {name:"parrot"}}])
+```
