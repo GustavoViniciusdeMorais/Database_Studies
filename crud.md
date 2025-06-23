@@ -53,4 +53,9 @@ db.linux.find({"name": {$in: ["debian","parrot"]}}, {"name":1,"version":1})
 ### Update
 ```js
 db.linux.updateOne({"_id": ObjectId('684b02c0a5388e217969e328')}, [{$set: {name:"parrot"}}])
+db.linux.updateOne({"_id": ObjectId('685986581a05bc3d3369e328')}, [{$set: {"user":"msf"}}])
+```
+### Remove attribute
+```js
+db.linux.updateOne({"_id": ObjectId('685986581a05bc3d3369e328')}, {$unset: {"user":1}})
 ```
