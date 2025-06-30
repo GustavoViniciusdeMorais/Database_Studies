@@ -74,7 +74,7 @@ sudo systemctl restart postgresql
 Switch to the PostgreSQL user:
 
 ```bash
-sudo -i -u postgres
+su postgres
 ```
 
 Access the PostgreSQL prompt:
