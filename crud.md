@@ -19,7 +19,8 @@ db.linux.deleteOne({name:"debian"})
 ## Example Session
 ```javascript
 test> use gustavo
-gustavo> db.linux.insertOne({"name":"debian","version":"25"})
+gustavo> item={"name":"debian","version":"25","list":[1,2,3]}
+gustavo> db.linux.insertOne(item)
 gustavo> show collections
 gustavo> db.linux.find()
 [
@@ -54,6 +55,8 @@ db.linux.find({"name": {$in: ["debian","parrot"]}}, {"name":1,"version":1})
 ```js
 db.linux.updateOne({"_id": ObjectId('684b02c0a5388e217969e328')}, [{$set: {name:"parrot"}}])
 db.linux.updateOne({"_id": ObjectId('685986581a05bc3d3369e328')}, [{$set: {"user":"msf"}}])
+db.linux.updateOne({"name":"debian"},{$push:{"list":32}})
+db.linux.updateOne({"name":"debian"},{$pull:{"list":2}})
 ```
 ### Remove attribute
 ```js
