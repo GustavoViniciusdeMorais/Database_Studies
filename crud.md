@@ -62,3 +62,10 @@ db.linux.updateOne({"name":"debian"},{$pull:{"list":2}})
 ```js
 db.linux.updateOne({"_id": ObjectId('685986581a05bc3d3369e328')}, {$unset: {"user":1}})
 ```
+### Delete
+```js
+del={"name":"windows","version":"shit"}
+db.linux.insertOne(del)
+db.linux.find({"version":"shit"})
+db.linux.deleteOne({"version":"shit"})
+```
