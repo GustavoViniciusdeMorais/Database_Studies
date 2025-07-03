@@ -33,8 +33,11 @@ gustavo> db.linux.find()
 ```
 ### Search data
 ```js
+db.linux.find.help
 db.linux.find({"name": {$regex: /ub/i }},{"name":1}).pretty()
 db.linux.find({},{"name":1}).pretty()
+# select oses the user like
+db.linux.find({ "likes": { $all: [410] }}, {"name":1}).sort({"version":1})
 ```
 ### Sort, limit, skip
 ```js
