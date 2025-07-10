@@ -72,3 +72,9 @@ db.linux.insertOne(del)
 db.linux.find({"version":"shit"})
 db.linux.deleteOne({"version":"shit"})
 ```
+### Index
+```js
+db.linux.getIndexes()
+db.linux.find({"version":"25"},{"name":1}).explain("executionStats")
+db.linux.createIndex({"name":-1})
+```
