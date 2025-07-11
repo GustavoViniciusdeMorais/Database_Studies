@@ -1,6 +1,7 @@
 # PostgreSQL Commands Cheat Sheet
 
 - [Configuration](./configPostgresql.md)
+- [Dump msf DB](./dumpDb.md)
 
 ## Database Operations
 
