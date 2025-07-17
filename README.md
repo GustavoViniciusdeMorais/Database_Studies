@@ -1,6 +1,8 @@
 # NoSQL with MongoDB
 - [Mongosh doc](https://www.mongodb.com/docs/mongodb-shell/crud/)<br>
-- [CRUD](./crud.md)<br>
+- [CRUD](./crud.md)
+- [File of items to import](./linux_oses.json)
+<br>
 
 ```markdown
 # MongoDB Setup and Commands
