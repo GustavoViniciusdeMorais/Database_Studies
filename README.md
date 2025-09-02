@@ -1,6 +1,7 @@
 # NoSQL with MongoDB
 - [Mongosh doc](https://www.mongodb.com/docs/mongodb-shell/crud/)<br>
 - [CRUD](./crud.md)
+- [PHP](./connect.php)
 - [File of items to import](./linux_oses.json)
 <br>
 
