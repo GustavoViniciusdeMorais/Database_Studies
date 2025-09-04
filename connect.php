@@ -17,3 +17,5 @@ $client = new MongoDB\Client('mongodb://root:example@mongo:27017');
 $client->admin->oses->insertOne(["name" => "debian"]);
 $document = $client->admin->oses->findOne(['name' => 'debian']);
 print_r(json_encode($document));
+$documents = $client->admin->oses->find();
+foreach ($documents as $doc) { print_r(json_encode($doc)); }
