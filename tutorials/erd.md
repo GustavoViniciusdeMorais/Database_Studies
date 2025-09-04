@@ -5,6 +5,8 @@
 ```js
 @startuml
 
+left to right direction
+
 entity User {
   +id: Integer
   +name: String
