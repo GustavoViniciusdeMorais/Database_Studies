@@ -71,3 +71,12 @@ LSP.productName, LSP.quantityInStock
 FROM
 LowStockProducts AS LSP
 ```
+
+### Update with data from same table
+
+```sql
+### Common Table Expression
+UPDATE db.table SET column =
+(SELECT column FROM (SELECT column FROM db.table WHERE id = 1) AS subquery)
+WHERE id = 1;
+```
