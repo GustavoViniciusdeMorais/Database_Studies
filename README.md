@@ -16,8 +16,13 @@ dpkg -i mongodb-org-server_8.0.6_amd64.deb
 ```
 
 ## Configuration
+- [config file](./mongod.conf)
 ```bash
+grep -iR "mongo" /etc/*
 nano /etc/mongod.conf
+mongod --version
+mongod --help
+mongod --config /etc/mongod.conf
 ```
 Add:
 ```yaml
