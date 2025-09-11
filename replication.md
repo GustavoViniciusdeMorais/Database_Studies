@@ -10,6 +10,13 @@ nano /etc/mongod.conf
 mongod --config /etc/mongod.conf
 
 mongosh
+
+use admin
+db.auth("root","example")
+
+rs.initiate()
+
+rs.status()
 ```
 ### config file
 ```yaml
