@@ -80,3 +80,11 @@ UPDATE db.table SET column =
 (SELECT column FROM (SELECT column FROM db.table WHERE id = 1) AS subquery)
 WHERE id = 1;
 ```
+### JSON Search
+```sql
+CREATE TABLE services (id INT, name VARCHAR(20), configurations JSON);
+
+INSERT INTO services VALUES (1, 'test', '{"host":{"url":"test"}}');
+
+SELECT * FROM services WHERE JSON_CONTAINS(configurations->'$.host.url', '"test"') limit 1;
+```
