@@ -58,6 +58,7 @@ db.linux.find({"name": {$in: ["debian","parrot"]}}, {"name":1,"version":1})
 ```js
 db.linux.updateOne({"_id": ObjectId('684b02c0a5388e217969e328')}, [{$set: {name:"parrot"}}])
 db.linux.updateOne({"_id": ObjectId('685986581a05bc3d3369e328')}, [{$set: {"user":"msf"}}])
+db.linux.updateOne({"id": "3"}, [{$set: {"created_at":new Date("2002-01-17 11:53:11")}}])
 db.linux.updateOne({"name":"debian"},{$push:{"list":32}})
 db.linux.updateOne({"name":"debian"},{$pull:{"list":2}})
 ```
