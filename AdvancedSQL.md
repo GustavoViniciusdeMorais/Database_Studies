@@ -91,4 +91,6 @@ SELECT * FROM services WHERE JSON_CONTAINS(configurations->'$.host.url', '"test"
 UPDATE services SET configurations = '{"host":{"url":[1,3]}}' WHERE id = 5;
 
 SELECT * FROM services WHERE JSON_CONTAINS(JSON_EXTRACT(configurations, "$.host.url"), '[3]') order by id desc limit 1;
+
+SELECT id, name, JSON_EXTRACT(configurations, "$.host.url") FROM services WHERE id = 5;
 ```
