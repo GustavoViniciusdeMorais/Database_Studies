@@ -87,4 +87,8 @@ CREATE TABLE services (id INT, name VARCHAR(20), configurations JSON);
 INSERT INTO services VALUES (1, 'test', '{"host":{"url":"test"}}');
 
 SELECT * FROM services WHERE JSON_CONTAINS(configurations->'$.host.url', '"test"') limit 1;
+
+UPDATE services SET configurations = '{"host":{"url":[1,3]}}' WHERE id = 5;
+
+SELECT * FROM services WHERE JSON_CONTAINS(JSON_EXTRACT(configurations, "$.host.url"), '[3]') order by id desc limit 1;
 ```
