@@ -94,3 +94,7 @@ SELECT * FROM services WHERE JSON_CONTAINS(JSON_EXTRACT(configurations, "$.host.
 
 SELECT id, name, JSON_EXTRACT(configurations, "$.host.url") FROM services WHERE id = 5;
 ```
+### String functions
+```sql
+SELECT SUBSTRING(name,1,3) FROM customers WHERE LENGTH(name) > 5;
+```
