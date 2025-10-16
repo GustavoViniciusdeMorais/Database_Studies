@@ -98,3 +98,7 @@ SELECT id, name, JSON_EXTRACT(configurations, "$.host.url") FROM services WHERE 
 ```sql
 SELECT SUBSTRING(name,1,3) FROM customers WHERE LENGTH(name) > 5;
 ```
+### Table Column Check
+```sql
+ALTER TABLE products ADD CONSTRAINT check_price CHECK (Price >=0);
+```
