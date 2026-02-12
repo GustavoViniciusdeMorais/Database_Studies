@@ -17,7 +17,11 @@ java -jar plantuml.jar class.txt
 ```bash
 docker pull plantuml/plantuml-server:tomcat
 
-docker run -d -p 17135:8080 plantuml/plantuml-server:tomcat
+docker run -d --name uml -p 17135:8080 plantuml/plantuml-server:tomcat
+docker ps | grep uml
+docker container stop [container_id]
+docker container rm -f uml
+
 ```
 
 ```js
