@@ -64,6 +64,9 @@ ALTER TABLE customers ADD COLUMN cpf VARCHAR(20);
 
 ALTER TABLE customers ADD CONSTRAINT cpf_unique UNIQUE (cpf);
 
+ALTER TABLE products DROP FOREIGN KEY code_foreign;
+ALTER TABLE products DROP CONSTRAINT code_unique;
+
 desc customers;
 
 ALTER TABLE customers MODIFY cpf VARCHAR(14) NOT NULL;
