@@ -94,6 +94,10 @@ SELECT * FROM services WHERE JSON_CONTAINS(JSON_EXTRACT(configurations, "$.host.
 
 SELECT id, name, JSON_EXTRACT(configurations, "$.host.url") FROM services WHERE id = 5;
 ```
+Framework Query
+```php
+$q->whereRaw("JSON_CONTAINS(JSON_EXTRACT(configurations, '$.host.url'), '$param')");
+```
 ### String functions
 ```sql
 SELECT SUBSTRING(name,1,3) FROM customers WHERE LENGTH(name) > 5;
