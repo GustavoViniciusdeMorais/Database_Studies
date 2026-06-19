@@ -72,7 +72,7 @@ del={"name":"windows","version":"shit"}
 db.linux.insertOne(del)
 db.linux.find({"version":"shit"})
 db.linux.deleteOne({"version":"shit"})
-db.mongodb_deal.deleteMany({})
+db.linux.deleteMany({})
 ```
 ### Index
 ```js
