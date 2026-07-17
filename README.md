@@ -1,5 +1,6 @@
 # MySQL Commands
 
+- [Daily](./tutorials/daily.md)
 - [Entity Relationship Diagram](./tutorials/erd.md)
 - [Advanced SQL Examples](./AdvancedSQL.md)
 - [Data Warehouse Snowflake](./data_warehouse_mariadb.md)
