@@ -106,3 +106,9 @@ SELECT SUBSTRING(name,1,3) FROM customers WHERE LENGTH(name) > 5;
 ```sql
 ALTER TABLE products ADD CONSTRAINT check_price CHECK (Price >=0);
 ```
+### EXPLAIN ANALYZE
+```sql
+EXPLAIN SELECT * FROM products WHERE id = 1;
+
+ANALYZE SELECT * FROM products WHERE id = 1;
+```
