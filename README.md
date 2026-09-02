@@ -6,6 +6,7 @@
 - [Data Warehouse Snowflake](./data_warehouse_mariadb.md)
 - [Manage Users](./manageUsers.md)
 - [Python DB CLI](./python/mysql.md)
+- [GraphDB](./tutorials/memgraph.md)
 
 ### Import database
 ```sh
