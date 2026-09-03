@@ -58,6 +58,9 @@ MATCH (o:Order {id: 102})-[:CONTAINS]->(p:Product) RETURN p.id, p.name, p.price;
 
 # Create two nodes and a relationship in one clause
 CREATE (o:Order {id: 101})-[:CONTAINS]->(p:Product {id: 1, name: 'Laptop', price: 1200});
+
+# exit cli
+:quit
 ```
 
 ```bash
