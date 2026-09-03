@@ -38,34 +38,41 @@ mgconsole --username memgraph --password password123
 CREATE (p1:Product {id: 1, name: 'Laptop', price: 1200});
 CREATE (p2:Product {id: 2, name: 'Mouse', price: 25});
 CREATE (p3:Product {id: 3, name: 'Keyboard', price: 75});
+CREATE INDEX ON :Product(id);
+
+MATCH (p:Product) RETURN p.id, p.name, p.price;
 
 CREATE (o1:Order {id: 101});
 CREATE (o2:Order {id: 102});
-
-CREATE (o1)-[:CONTAINS]->(p1);
-CREATE (o1)-[:CONTAINS]->(p2);
-CREATE (o2)-[:CONTAINS]->(p3);
-
-CREATE INDEX ON :Product(id);
 CREATE INDEX ON :Order(id);
 
-MATCH (o:Order {id: 101})-[:CONTAINS]->(p:Product)
-RETURN p.id, p.name, p.price;
+MATCH (o:Order) RETURN o.id, o.name;
+
+# Create a relationship between existing nodes
+MATCH (o2:Order {id: 102}), (p3:Product {id: 3})
+CREATE (o1)-[:CONTAINS]->(p3);
+
+MATCH (o:Order {id: 101})-[:CONTAINS]->(p:Product) RETURN p.id, p.name, p.price;
+
+MATCH (o:Order {id: 102})-[:CONTAINS]->(p:Product) RETURN p.id, p.name, p.price;
+
+# Create two nodes and a relationship in one clause
+CREATE (o:Order {id: 101})-[:CONTAINS]->(p:Product {id: 1, name: 'Laptop', price: 1200});
 ```
 
 ```bash
-// List all node labels (like SHOW TABLES)
+# List all node labels (like SHOW TABLES)
 MATCH (n) RETURN DISTINCT labels(n);
 
-// List all relationship types
+# List all relationship types
 MATCH ()-[r]->() RETURN DISTINCT type(r);
 
-// Show all nodes (like SELECT * FROM table)
+# Show all nodes (like SELECT * FROM table)
 MATCH (n) RETURN n;
 
-// Show all products (like SELECT * FROM products)
+# Show all products (like SELECT * FROM products)
 MATCH (p:Product) RETURN p;
 
-// No need to "connect to database" - you're already in it
-// No CREATE DATABASE - Memgraph is single database
+# No need to "connect to database" - you're already in it
+# No CREATE DATABASE - Memgraph is single database
 ```
