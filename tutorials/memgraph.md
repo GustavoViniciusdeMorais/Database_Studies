@@ -50,7 +50,15 @@ MATCH (o:Order) RETURN o.id, o.name;
 
 # Create a relationship between existing nodes
 MATCH (o2:Order {id: 102}), (p3:Product {id: 3})
-CREATE (o1)-[:CONTAINS]->(p3);
+CREATE (o2)-[r:CONTAINS]->(p3);
+
+# Delete a relationship between existing nodes
+MATCH (o2:Order {id: 102})-[r:CONTAINS]->(p3:Product {id: 3})
+DELETE r;
+
+# Delete a node (only works if it has no relationships)
+MATCH (p:Product {id: 2})
+DELETE p
 
 MATCH (o:Order {id: 101})-[:CONTAINS]->(p:Product) RETURN p.id, p.name, p.price;
 
