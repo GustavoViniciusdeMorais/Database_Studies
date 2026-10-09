@@ -112,3 +112,11 @@ EXPLAIN SELECT * FROM products WHERE id = 1;
 
 ANALYZE SELECT * FROM products WHERE id = 1;
 ```
+### Having count or sum results
+```sql
+SELECT site_id, SUM(file_size) AS "Total"
+FROM pages
+WHERE site_id < 100
+GROUP BY site_id
+HAVING SUM(file_size) > 500;
+```
