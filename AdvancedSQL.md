@@ -80,6 +80,10 @@ UPDATE db.table SET column =
 (SELECT column FROM (SELECT column FROM db.table WHERE id = 1) AS subquery)
 WHERE id = 1;
 ```
+### Regex
+```sql
+SELECT u.id, u.email FROM db.users u WHERE u.email RLIKE 'kali.*linux';
+```
 ### JSON Search
 ```sql
 CREATE TABLE services (id INT, name VARCHAR(20), configurations JSON);
